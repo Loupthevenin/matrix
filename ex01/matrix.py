@@ -80,7 +80,7 @@ def linear_combination(u: List["Vector[K]"], coefs: List[K]) -> "Vector[K]":
 
     size = u[0].shape()
 
-    result_values: List[K] = [0 for _ in range(size)]
+    result_values: List[K] = [u[0].values[j] * 0 for j in range(size)]
 
     for i in range(len(u)):
         vec = u[i]
