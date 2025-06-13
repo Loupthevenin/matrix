@@ -85,7 +85,8 @@ class Matrix(Generic[K]):
             for r in range(num_rows):
                 if r != pivot_row:
                     factor = mat[r][col]
-                    mat[r] = [a - factor * b for a, b in zip(mat[r], mat[pivot_row])]
+                    mat[r] = [a - factor * b for a,
+                              b in zip(mat[r], mat[pivot_row])]
 
             pivot_row += 1
             if pivot_row >= num_rows:
@@ -95,7 +96,8 @@ class Matrix(Generic[K]):
 
     def determinant(self) -> float:
         if not self.is_square():
-            raise ValueError("Matrix must be square to compute the determinant.")
+            raise ValueError(
+                "Matrix must be square to compute the determinant.")
 
         n = len(self.rows)
 
@@ -116,8 +118,8 @@ class Matrix(Generic[K]):
         if n == 4:
 
             def minor(
-                matrix: "Matrix[K]", row_to_remove: float, col_to_remove: float
-            ) -> "Matrix[K]":
+                matrix: List[List[K]], row_to_remove: float, col_to_remove: float
+            ) -> List[List[K]]:
                 minor_matrix = []
                 for i, row in enumerate(matrix):
                     if i == row_to_remove:

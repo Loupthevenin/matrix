@@ -118,8 +118,8 @@ class Matrix(Generic[K]):
         if n == 4:
 
             def minor(
-                matrix: "Matrix[K]", row_to_remove: float, col_to_remove: float
-            ) -> "Matrix[K]":
+                matrix: List[List[K]], row_to_remove: float, col_to_remove: float
+            ) -> List[List[K]]:
                 minor_matrix = []
                 for i, row in enumerate(matrix):
                     if i == row_to_remove:
